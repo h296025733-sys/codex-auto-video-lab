@@ -1,0 +1,4 @@
+interface:
+  display_name: "TikTok Fine-Cut Director"
+  short_description: "Reference-driven TikTok fine editing with evidence"
+  default_prompt: "Use $tiktok-fine-cut-director to analyze these references and design a production-ready fine-cut edit."

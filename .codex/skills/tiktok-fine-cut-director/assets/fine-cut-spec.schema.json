@@ -1,0 +1,217 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.codex/fine-cut-spec.schema.json",
+  "title": "TikTok Fine-Cut Specification",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "job_id",
+    "audience",
+    "regime",
+    "route",
+    "creative_thesis",
+    "target_duration_seconds",
+    "claims",
+    "retention_events",
+    "typography",
+    "evidence_inserts",
+    "audio",
+    "rights",
+    "verification"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "job_id": {"type": "string", "minLength": 1},
+    "audience": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["locale", "market", "viewer_need"],
+      "properties": {
+        "locale": {"enum": ["en-US", "es-US", "es-419"]},
+        "market": {"type": "string", "minLength": 1},
+        "viewer_need": {"type": "string", "minLength": 1}
+      }
+    },
+    "regime": {"enum": ["product-proof", "expert-overlay", "hybrid"]},
+    "route": {"enum": ["auto-video-editor", "openchatcut-remotion", "hybrid"]},
+    "creative_thesis": {"type": "string", "minLength": 1},
+    "target_duration_seconds": {"type": "number", "exclusiveMinimum": 0},
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/claim"}
+    },
+    "retention_events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/retentionEvent"}
+    },
+    "typography": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["body_font", "hook_font", "accent_font", "caption_mode", "safe_zone_policy", "palette"],
+      "properties": {
+        "body_font": {"type": "string", "minLength": 1},
+        "hook_font": {"type": "string", "minLength": 1},
+        "accent_font": {"type": "string", "minLength": 1},
+        "caption_mode": {"enum": ["phrase", "word", "mixed"]},
+        "safe_zone_policy": {"type": "string", "minLength": 1},
+        "palette": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "minItems": 2,
+          "maxItems": 6
+        }
+      }
+    },
+    "evidence_inserts": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/evidenceInsert"}
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["voiceover", "music_policy", "music_asset_id", "sfx_policy", "mix_notes"],
+      "properties": {
+        "voiceover": {"enum": ["none", "source", "generated-en-US", "generated-es-US", "generated-es-419"]},
+        "music_policy": {"enum": ["verified-local", "platform-cleared", "voiceover-only", "silent"]},
+        "music_asset_id": {"type": ["string", "null"], "minLength": 1},
+        "sfx_policy": {"type": "string", "minLength": 1},
+        "mix_notes": {"type": "string", "minLength": 1}
+      }
+    },
+    "rights": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "asset_id",
+          "source",
+          "license_or_authorization",
+          "usage_scope",
+          "reference_only",
+          "release_status"
+        ],
+        "properties": {
+          "asset_id": {"type": "string", "minLength": 1},
+          "source": {"type": "string", "minLength": 1},
+          "license_or_authorization": {"type": "string", "minLength": 1},
+          "usage_scope": {"type": "string", "minLength": 1},
+          "reference_only": {"type": "boolean"},
+          "release_status": {"enum": ["not-applicable", "confirmed", "unknown"]},
+          "sha256": {"type": "string", "pattern": "^[A-Fa-f0-9]{64}$"},
+          "markets": {
+            "type": "array",
+            "items": {"type": "string", "minLength": 1},
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "expires_on": {"type": ["string", "null"]}
+        }
+      }
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["planned_checks", "not_proven"],
+      "properties": {
+        "planned_checks": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "minItems": 1
+        },
+        "not_proven": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "minItems": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_id", "text", "status", "evidence"],
+      "properties": {
+        "claim_id": {"type": "string", "minLength": 1},
+        "text": {"type": "string", "minLength": 1},
+        "status": {"enum": ["verified", "conditional", "forbidden"]},
+        "evidence": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "minItems": 1
+        }
+      }
+    },
+    "retentionEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end",
+        "spoken_idea",
+        "visual_job",
+        "confidence",
+        "evidence_source",
+        "source_asset_id",
+        "source_in",
+        "source_out",
+        "claim_ids",
+        "shot_or_overlay",
+        "text",
+        "text_treatment",
+        "motion",
+        "exit_condition"
+      ],
+      "properties": {
+        "start": {"type": "number", "minimum": 0},
+        "end": {"type": "number", "exclusiveMinimum": 0},
+        "spoken_idea": {"type": "string", "minLength": 1},
+        "visual_job": {"enum": ["hook", "identity", "proof", "feature", "comparison", "progress", "objection", "payoff", "cta"]},
+        "confidence": {"enum": ["observed", "inferred", "heuristic"]},
+        "evidence_source": {"type": "string", "minLength": 1},
+        "source_asset_id": {"type": ["string", "null"], "minLength": 1},
+        "source_in": {"type": ["number", "null"], "minimum": 0},
+        "source_out": {"type": ["number", "null"], "exclusiveMinimum": 0},
+        "claim_ids": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "shot_or_overlay": {"type": "string", "minLength": 1},
+        "text": {"type": ["string", "null"]},
+        "text_treatment": {"type": "string", "minLength": 1},
+        "motion": {"type": "string", "minLength": 1},
+        "exit_condition": {"type": "string", "minLength": 1}
+      }
+    },
+    "evidenceInsert": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "asset_id",
+        "kind",
+        "semantic_trigger",
+        "enter_at",
+        "exit_at",
+        "provenance",
+        "illustrative",
+        "claim_boundary"
+      ],
+      "properties": {
+        "asset_id": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["user-image", "product-cutout", "source-frame", "chart", "licensed-stock", "generated-explainer", "icon"]},
+        "semantic_trigger": {"type": "string", "minLength": 1},
+        "enter_at": {"type": "number", "minimum": 0},
+        "exit_at": {"type": "number", "exclusiveMinimum": 0},
+        "provenance": {"type": "string", "minLength": 1},
+        "illustrative": {"type": "boolean"},
+        "claim_boundary": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

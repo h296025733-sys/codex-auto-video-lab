@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "codex-auto-video-lab"
+version = "0.1.0"
+description = "Auditable local media analysis, edit-plan rendering, and technical QA for Codex."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "edge-tts==7.2.8",
+  "faster-whisper==1.2.1",
+  "librosa==0.11.0",
+  "opencv-python-headless==4.11.0.86",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest==8.4.1",
+  "ruff==0.12.9",
+]
+
+[project.scripts]
+auto-video = "auto_video_lab.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "workspace": ".",
+  "python": {
+    "version": "3.12.13",
+    "executable": ".venv\\Scripts\\python.exe",
+    "isolation": "workspace virtual environment"
+  },
+  "ffmpeg": {
+    "version": "8.1.2-essentials_build-www.gyan.dev",
+    "licenseMode": "GPLv3-or-later build",
+    "ffmpegPath": "tools\\ffmpeg\\bin\\ffmpeg.exe",
+    "ffmpegSha256": "1326dde4c84ff1f96fe6b8916c5bed29e163e9b5dccf995f6f3db069d143ec5e",
+    "ffprobePath": "tools\\ffmpeg\\bin\\ffprobe.exe",
+    "ffprobeSha256": "b49ccc7c6547b141ad5a2f6ec69cc04323d7133d7704d70b331b904c63eecb07"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.codex/voiceover-spec.schema.json",
+  "title": "Codex directed commerce voiceover specification",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "job_id",
+    "voice",
+    "target_audience",
+    "angle",
+    "verified_claims",
+    "segments"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "job_id": { "type": "string" },
+    "voice": { "type": "string", "minLength": 1 },
+    "output_filename": { "type": "string", "pattern": "^[^/\\\\]+\\.mp3$" },
+    "target_audience": {
+      "type": "object",
+      "required": ["persona", "situation", "pain_point", "desired_outcome"],
+      "properties": {
+        "persona": { "type": "string", "minLength": 1 },
+        "situation": { "type": "string", "minLength": 1 },
+        "pain_point": { "type": "string", "minLength": 1 },
+        "desired_outcome": { "type": "string", "minLength": 1 },
+        "objections": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "angle": {
+      "enum": ["pain_solution", "ugc_discovery", "demo_proof", "comparison", "confession", "warning"]
+    },
+    "verified_claims": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    },
+    "forbidden_claims": { "type": "array", "items": { "type": "string" } },
+    "segments": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": ["id", "role", "emotion", "text"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "role": { "enum": ["hook", "problem", "proof", "benefit", "objection", "cta"] },
+          "emotion": {
+            "enum": ["frustrated", "curious", "surprised", "playful", "confident", "relieved", "urgent", "warm"]
+          },
+          "text": { "type": "string", "minLength": 1 },
+          "caption": { "type": "string", "minLength": 1 },
+          "claim_ids": { "type": "array", "items": { "type": "string" } },
+          "pause_after_ms": { "type": "integer", "minimum": 0, "maximum": 1500 },
+          "delivery": {
+            "type": "object",
+            "properties": {
+              "rate": { "type": "string", "pattern": "^[+-][0-9]{1,2}%$" },
+              "pitch": { "type": "string", "pattern": "^[+-][0-9]{1,2}Hz$" },
+              "volume": { "type": "string", "pattern": "^[+-][0-9]{1,2}%$" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

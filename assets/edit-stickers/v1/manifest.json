@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "revision": "1ffb34c752ecf5d402f04cfb4b392c77f57c54bc",
+  "license": "MIT",
+  "copyright": "Microsoft Corporation",
+  "files": [
+    {
+      "symbol": "😳",
+      "file": "flushed_face_3d.png",
+      "source": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/1ffb34c752ecf5d402f04cfb4b392c77f57c54bc/assets/Flushed%20face/3D/flushed_face_3d.png",
+      "sha256": "6058b2f5d07f7e3bfb569cbfc0d156b059bd672b53d467ca66ba3d64f81c5a9e",
+      "bytes": 38711
+    },
+    {
+      "symbol": "🙈",
+      "file": "see-no-evil_monkey_3d.png",
+      "source": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/1ffb34c752ecf5d402f04cfb4b392c77f57c54bc/assets/See-no-evil%20monkey/3D/see-no-evil_monkey_3d.png",
+      "sha256": "778ab03efbed70f4ad56f947110666bef8c1692b2b4a395e2c69eeb91d041678",
+      "bytes": 47279
+    },
+    {
+      "symbol": "✨",
+      "file": "sparkles_3d.png",
+      "source": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/1ffb34c752ecf5d402f04cfb4b392c77f57c54bc/assets/Sparkles/3D/sparkles_3d.png",
+      "sha256": "e4490c9ff74a3fd73a8f99c760d65b6ed51b8a3e4ad28da137fec050b77e1058",
+      "bytes": 21948
+    },
+    {
+      "symbol": "👇",
+      "file": "backhand_index_pointing_down_3d_default.png",
+      "source": "https://raw.githubusercontent.com/microsoft/fluentui-emoji/1ffb34c752ecf5d402f04cfb4b392c77f57c54bc/assets/Backhand%20index%20pointing%20down/Default/3D/backhand_index_pointing_down_3d_default.png",
+      "sha256": "ace09c0778f6653b1254fe3040eacbfea1795195f19f598fb788f2ace3e00e1f",
+      "bytes": 24723
+    }
+  ]
+}

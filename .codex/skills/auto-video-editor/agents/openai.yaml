@@ -1,0 +1,8 @@
+interface:
+  display_name: "Auto Video Editor"
+  short_description: "Turn local media and a brief into a rendered, audited edit"
+  default_prompt: "Use $auto-video-editor to analyze my uploaded assets, make a custom edit plan, render the MP4, and run local technical QA."
+
+policy:
+  allow_implicit_invocation: true
+

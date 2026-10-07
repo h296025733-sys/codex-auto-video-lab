@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/google/fonts",
+  "commit": "ec626514f79f831f1ab848a82114a0ce7e2d6372",
+  "license": "SIL Open Font License 1.1",
+  "installation": "Project-local assets only; not installed into Windows.",
+  "families": [
+    {
+      "family": "Montserrat",
+      "role": "Primary captions and body copy; variable weight supports semantic emphasis without extra font files.",
+      "upstream_directory": "ofl/montserrat",
+      "license_file": {
+        "path": "montserrat/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/ec626514f79f831f1ab848a82114a0ce7e2d6372/ofl/montserrat/OFL.txt",
+        "size_bytes": 4400,
+        "sha256": "8b7141c03fa4f8d44e6345d5d4931709290f0f67875e452e95ac1fd3a027802e"
+      },
+      "files": [
+        {
+          "path": "montserrat/Montserrat[wght].ttf",
+          "style": "normal",
+          "format": "TrueType variable font",
+          "source": "https://raw.githubusercontent.com/google/fonts/ec626514f79f831f1ab848a82114a0ce7e2d6372/ofl/montserrat/Montserrat%5Bwght%5D.ttf",
+          "size_bytes": 744936,
+          "sha256": "0f7b311b2f3279e4eef9b2f968bcdbab6e28f4daeb1f049f4f278a902bcd82f7"
+        },
+        {
+          "path": "montserrat/Montserrat-Italic[wght].ttf",
+          "style": "italic",
+          "format": "TrueType variable font",
+          "source": "https://raw.githubusercontent.com/google/fonts/ec626514f79f831f1ab848a82114a0ce7e2d6372/ofl/montserrat/Montserrat-Italic%5Bwght%5D.ttf",
+          "size_bytes": 762376,
+          "sha256": "51607f316bc020e59f03cbf51543eecffbea501c0b31d73e5b82927c5cca442c"
+        },
+        {
+          "path": "montserrat/Montserrat-SemiBold.ttf",
+          "style": "semibold",
+          "format": "Derived static TrueType instance",
+          "derived_from": "montserrat/Montserrat[wght].ttf at wght=600 using fontTools varLib.instancer",
+          "size_bytes": 374640,
+          "sha256": "b7722ccf5974cdbcaf685d2161750a091fdfe5f237488a32612eb3cfc4a7ec32"
+        },
+        {
+          "path": "montserrat/Montserrat-ExtraBold.ttf",
+          "style": "extrabold",
+          "format": "Derived static TrueType instance",
+          "derived_from": "montserrat/Montserrat[wght].ttf at wght=800 using fontTools varLib.instancer",
+          "size_bytes": 374656,
+          "sha256": "1eaf618a6c89d7b3cda200e629844d82dd65b2d29c4817bac59bb120e5316256"
+        }
+      ]
+    },
+    {
+      "family": "Anton",
+      "role": "Condensed high-impact hooks, section labels, and CTA display text.",
+      "upstream_directory": "ofl/anton",
+      "license_file": {
+        "path": "anton/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/ec626514f79f831f1ab848a82114a0ce7e2d6372/ofl/anton/OFL.txt",
+        "size_bytes": 4484,
+        "sha256": "ee67e6ee22790b7929f1a3769ca2801d565c64b5a9096942c1adf5596de9c9e4"
+      },
+      "files": [
+        {
+          "path": "anton/Anton-Regular.ttf",
+          "style": "normal",
+          "format": "TrueType",
+          "source": "https://raw.githubusercontent.com/google/fonts/ec626514f79f831f1ab848a82114a0ce7e2d6372/ofl/anton/Anton-Regular.ttf",
+          "size_bytes": 170812,
+          "sha256": "a4ba3a92350ebb031da0cb47630ac49eb265082ca1bc0450442f4a83ab947cab"
+        }
+      ]
+    },
+    {
+      "family": "DM Serif Display",
+      "role": "Sparse editorial accent words only; pair with the primary sans-serif, not full subtitles.",
+      "upstream_directory": "ofl/dmserifdisplay",
+      "license_file": {
+        "path": "dm-serif-display/OFL.txt",
+        "source": "https://raw.githubusercontent.com/google/fonts/ec626514f79f831f1ab848a82114a0ce7e2d6372/ofl/dmserifdisplay/OFL.txt",
+        "size_bytes": 4605,
+        "sha256": "a3e5cdd67d4571dd0a24fcc968de0efde7ae97ef752daf0906e4767619dd7231"
+      },
+      "files": [
+        {
+          "path": "dm-serif-display/DMSerifDisplay-Regular.ttf",
+          "style": "normal",
+          "format": "TrueType",
+          "source": "https://raw.githubusercontent.com/google/fonts/ec626514f79f831f1ab848a82114a0ce7e2d6372/ofl/dmserifdisplay/DMSerifDisplay-Regular.ttf",
+          "size_bytes": 76580,
+          "sha256": "8cc3643535edf039aa5d95440a8542735e9197e4f4b8d9303e980fefbf5ab616"
+        },
+        {
+          "path": "dm-serif-display/DMSerifDisplay-Italic.ttf",
+          "style": "italic",
+          "format": "TrueType",
+          "source": "https://raw.githubusercontent.com/google/fonts/ec626514f79f831f1ab848a82114a0ce7e2d6372/ofl/dmserifdisplay/DMSerifDisplay-Italic.ttf",
+          "size_bytes": 71208,
+          "sha256": "df74c0ac387baeaeb0fe4f2324e1668e6a3ed8c09cd9796fe162c71753e19e45"
+        }
+      ]
+    }
+  ]
+}
